@@ -1,0 +1,11 @@
+<h1>Edit Student Detail</h1>
+
+<%= form_for @student, :url =>{:action => "update", :id =>@student} do |f| %>
+
+<p>Password: <%= f.text_field 'password' %></p>
+<p>School Year: <%= f.number_field  'school_year' %></p>
+
+<%= f.submit "Save changes" %>
+<% end %>
+
+<%= link_to 'Back', {:action => 'list' } %>
