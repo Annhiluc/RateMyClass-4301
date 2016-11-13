@@ -1,2 +1,0 @@
-class SignUpController < ApplicationController
-end

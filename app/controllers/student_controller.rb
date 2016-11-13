@@ -1,4 +1,4 @@
-class HomeController < ApplicationController
+class StudentController < ApplicationController
     def list
         @students = Student.all
     end
@@ -9,15 +9,10 @@ class HomeController < ApplicationController
     
     def new
         @student = Student.new
-        @students = Student.all
-    end
-    
-    def student_param_create
-        params.require(:students).permit(:user_id, :name, :school_year, :password)
     end
 
     def create
-        @student = Student.new(student_param_create)
+        @student = Student.new(student_params_create)
 
         if @student.save
             redirect_to :action => 'list'
@@ -27,19 +22,23 @@ class HomeController < ApplicationController
         end
     end
 
+    def student_params_create
+        params.require(:student).permit(:user_id, :name, :school_year, :password)
+    end
+
     def edit
         @student = Student.find(params[:id])
         @students = Student.all
     end
 
-    def student_param_edit
+    def student_params_edit
         params.require(:student).permit(:school_year, :password)
     end
     
     def update
         @student = Student.find(params[:id])
 	
-        if @student.update_attributes(student_param_edit)
+        if @student.update_attributes(student_params_edit)
             redirect_to :action => 'show', :id => @student
         else
             @students = Subject.all

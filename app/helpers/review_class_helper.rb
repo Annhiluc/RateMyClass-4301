@@ -1,2 +1,0 @@
-module ReviewClassHelper
-end
