@@ -1,0 +1,27 @@
+<%= form_tag :action => 'create' do %>
+
+<p><label for = "rateProfessor_Prof_ID">Professor</label>:
+<%= text_field 'rateProfessor', 'Prof_ID' %></p>
+
+<p><label for = "rateProfessor_rating_lecture">Lectures</label>:
+<%= number_field 'rateProfessor', 'rating_lecture', within: 0...6, :step => 0.1  %></p>
+
+<p><label for = "rateProfessor_rating_interest">Interest</label>:
+<%= number_field 'rateProfessor', 'rating_interest', within: 0...6, :step => 0.1   %></p>
+
+<p><label for = "rateProfessor_rating_helpful">Helpful</label>:
+<%= number_field 'rateProfessor', 'rating_helpful', within: 0...6, :step => 0.1   %></p>
+
+
+<p><label for = "rateProfessor_rating_grading">Grading</label>:
+<%= number_field 'rateProfessor', 'rating_grading', within: 0...6, :step => 0.1  %></p>
+
+<p><label for = "rateProfessor_User_ID">User</label>:
+<%= text_field 'rateProfessor', 'user_id' %></p>
+
+<%= submit_tag "Submit Review" %>
+
+<% end -%>
+
+
+
