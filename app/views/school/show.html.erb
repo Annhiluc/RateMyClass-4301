@@ -1,0 +1,21 @@
+<h1><%= @school.name %></h1>
+
+<p>
+   <strong>Name: </strong> <%= @school.name %><br />
+   <strong>City:</strong> <%= @school.city %><br />
+   <strong>State:</strong> <%= @school.state %><br />
+
+   <ul id = "Departments">
+	   <% @departments.find_each(school_id: @school.school_id) do |c| %>
+	   <li>
+	        <%= @department.name %>
+	        
+	   </li>
+	</ul>
+	<% end %>
+
+</p>
+
+<hr />
+
+<%= link_to 'Back', {:action => 'list'} %>

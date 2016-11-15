@@ -1,0 +1,22 @@
+
+
+<%= form_tag :action => 'create' do %>
+
+<p><label for = "rateCourse_Course_ID">Course</label>:
+<%= text_field 'student', 'Course_ID' %></p>
+
+<p><label for = "rateCourse_rating_difficult">Difficulty</label>:
+<%= number_field 'rateCourse', 'rating_difficult', within: 0...6, :step => 0.1 %></p>
+
+<p><label for = "rateCourse_rating_interest">Interest</label>:
+<%= number_field 'rateCourse', 'rating_interest', within: 0...6, :step => 0.1 %></p>
+
+<p><label for = "rateCourse_User_ID">User</label>:
+<%= text_field 'rateCourse', 'user_id' %></p>
+
+<%= submit_tag "Submit Review" %>
+
+<% end -%>
+
+
+

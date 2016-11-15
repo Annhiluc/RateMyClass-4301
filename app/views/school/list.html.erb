@@ -1,0 +1,16 @@
+<% if @schools.blank? %>
+<p>There are not any schools currently in the system.</p>
+<% else %>
+<p>These are the current schools in our system</p>
+
+<ul id = "Schools">
+   <% @schools.each do |c| %>
+   <li>
+        <%= link_to c.name, {:action => 'show', :id => c.school_id} -%>
+        
+   </li>
+</ul>
+
+<% end %>
+
+<% end %>
