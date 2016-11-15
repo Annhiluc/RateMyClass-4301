@@ -1,6 +1,5 @@
-class ReviewController < ApplicationController
-	
-	def new
+class ReviewProfessorController < ApplicationController
+    def new
 		@rate_professor = RateProfessor.new
         
 	end
@@ -16,5 +15,4 @@ class ReviewController < ApplicationController
 			render :action => 'new'
 		end 
     end
-
 end
