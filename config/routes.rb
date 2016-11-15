@@ -17,8 +17,8 @@ Rails.application.routes.draw do
   get 'review_class/new'
   post 'review_class/create'
 
-  get 'review/new'
-  post 'review/create'
+  get 'review_professor/new'
+  post 'review_professor/create'
   
   get '/', to: 'dashboard#index'
   get '/sign-up', to: 'student#new'
