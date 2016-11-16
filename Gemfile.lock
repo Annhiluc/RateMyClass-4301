@@ -33,7 +33,7 @@ GEM
       activemodel (= 5.0.0.1)
       activesupport (= 5.0.0.1)
       arel (~> 7.0)
-    activerecord-oracle_enhanced-adapter (1.7.4)
+    activerecord-oracle_enhanced-adapter (1.7.7)
       activerecord (~> 5.0.0)
       arel (~> 7.1.4)
       ruby-plsql (>= 0.5.0)
@@ -50,7 +50,7 @@ GEM
     coffee-script (2.4.1)
       coffee-script-source
       execjs
-    coffee-script-source (1.10.0)
+    coffee-script-source (1.8.0)
     concurrent-ruby (1.0.2)
     debug_inspector (0.0.2)
     erubis (2.7.0)
@@ -131,7 +131,7 @@ GEM
     turbolinks-source (5.0.0)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
-    tzinfo-data (1.2016.8)
+    tzinfo-data (1.2016.9)
       tzinfo (>= 1.0.0)
     uglifier (3.0.3)
       execjs (>= 0.3.0, < 3)
@@ -151,6 +151,7 @@ DEPENDENCIES
   activerecord-oracle_enhanced-adapter (~> 1.7.0)
   byebug
   coffee-rails (~> 4.2)
+  coffee-script-source (= 1.8.0)
   jbuilder (~> 2.5)
   jquery-rails
   puma (~> 3.0)

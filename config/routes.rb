@@ -13,9 +13,16 @@ Rails.application.routes.draw do
 
   get 'school/list'
   get 'school/show'
+  
 
-  get 'review_class/new'
-  post 'review_class/create'
+  get 'department/show'
+
+  get 'professor/show'
+
+  get 'course/show'
+
+  get 'review_course/new'
+  post 'review_course/create'
 
   get 'review_professor/new'
   post 'review_professor/create'

@@ -1,4 +1,4 @@
-class ReviewClassController < ApplicationController
+class ReviewCourseController < ApplicationController
 	def new
 	  @rate_course = RateCourse.new
     end

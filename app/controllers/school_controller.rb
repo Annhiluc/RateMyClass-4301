@@ -4,7 +4,11 @@ class SchoolController < ApplicationController
     end
     
     def show
-        @school = School.find(params[:id])
+    	@school = School.find(params[:id])
+    	@departments = Department.where(school_id: @school.id)
+        
     end
+
+    
     
 end

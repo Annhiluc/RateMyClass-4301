@@ -5,10 +5,11 @@
    <strong>City:</strong> <%= @school.city %><br />
    <strong>State:</strong> <%= @school.state %><br />
 
+   <h2>Departments:</h2>
    <ul id = "Departments">
-	   <% @departments.find_each(school_id: @school.school_id) do |c| %>
+	   <% @departments.each do |c| %>
 	   <li>
-	        <%= @department.name %>
+	        <%= link_to c.name, {:controller => 'department', :action => 'show', :id => c.id} %>
 	        
 	   </li>
 	</ul>
