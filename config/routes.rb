@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  
   get 'student/list'
   get 'student/new'
   post 'student/create'
@@ -13,7 +12,6 @@ Rails.application.routes.draw do
 
   get 'school/list'
   get 'school/show'
-  
 
   get 'department/show'
 
@@ -27,6 +25,7 @@ Rails.application.routes.draw do
   get 'review_professor/new'
   post 'review_professor/create'
   
+  # Refer to final site URLs
   get '/', to: 'dashboard#index'
   get '/sign-up', to: 'student#new'
   get '/login', to: 'sessions#new'

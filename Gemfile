@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+ruby '2.3.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
@@ -46,3 +47,5 @@ gem 'activerecord-oracle_enhanced-adapter', '~> 1.7.0'
 gem 'ruby-oci8' # only for CRuby users
 
 gem 'coffee-script-source', '1.8.0'
+
+gem 'heroku'

@@ -15,7 +15,7 @@ class StudentController < ApplicationController
         @student = Student.new(student_params_create)
 
         if @student.save
-            redirect_to :action => 'list'
+            redirect_to :action => 'show', :id => @student
         else
             @students = Student.all
             render :action => 'new'
