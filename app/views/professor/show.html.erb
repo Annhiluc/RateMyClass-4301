@@ -1,5 +1,7 @@
 <h1><%= @professor.name %></h1>
-
+<% if current_user %>
+	<%= link_to "Write a Review", {:controller => 'review_professor', :action => 'new', :id => @professor.id} %>
+<% end %>
 <p>
 	<h2>Courses Taught:</h2>
 		<% if @courses.blank? %>
@@ -30,6 +32,11 @@
 			</ul>
 				<% end %>
 				<%end %>
+
+
+
+
 </p>
+
 
 <hr />

@@ -5,6 +5,8 @@ class StudentController < ApplicationController
     
     def show
         @student = Student.find(params[:id])
+        @ratingsCourse  = RateCourse.where(user_id: @student.user_id)
+        @ratingsProf = RateProfessor.where(user_id: @student.user_id)
     end
     
     def new

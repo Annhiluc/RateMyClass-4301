@@ -22,10 +22,10 @@ Rails.application.routes.draw do
   get 'course/show'
 
   get 'review_course/new'
-  post 'review_course/create'
+  patch 'review_course/create'
 
   get 'review_professor/new'
-  post 'review_professor/create'
+  patch 'review_professor/create'
   
   get '/', to: 'dashboard#index'
   get '/sign-up', to: 'student#new'
