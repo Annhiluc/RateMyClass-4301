@@ -20,10 +20,10 @@ Rails.application.routes.draw do
   get 'course/show'
 
   get 'review_course/new'
-  post 'review_course/create'
+  patch 'review_course/create'
 
   get 'review_professor/new'
-  post 'review_professor/create'
+  patch 'review_professor/create'
   
   # Refer to final site URLs
   get '/', to: 'dashboard#index'

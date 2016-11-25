@@ -1,4 +1,7 @@
 <h1><%= @course.name %></h1>
+<% if current_user %>
+   <%= link_to "Write a Review", {:controller => 'review_course', :action => 'new', :id => @course.id} %>
+ <% end %>
 
 <p>
    <h2>Professors that Teach this Course:</h2>
