@@ -5,3 +5,19 @@
 <% else %>
   <%= link_to "Login", '/login' %> | <%= link_to "Sign Up", '/sign-up' %>
 <% end %>
+
+<%= form_tag :action => 'search_professor' do %>
+	<p><label for = "professor_name">Professor</label>:
+
+	<%= text_field 'professor', 'prof_name' %></p>
+	<%= submit_tag "Search" %>
+
+<% end -%>
+
+<%= form_tag :action => 'search_course' do %>
+	<p><label for = "course_name">Course</label>:
+
+	<%= text_field 'course', 'course_name' %></p>
+	<%= submit_tag "Search" %>
+
+<% end -%>

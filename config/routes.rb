@@ -10,6 +10,10 @@ Rails.application.routes.draw do
   get 'student/edit'
   get 'student/delete'
   get 'student/update'
+  post 'dashboard/search_professor'
+  post 'dashboard/search_course'
+  get 'dashboard/show_professor'
+  get 'dashboard/show_course'
   
   get '/', to: 'dashboard#index'
   get '/sign-up', to: 'student#new'
