@@ -1,2 +1,0 @@
-class ProfessorProfileController < ApplicationController
-end

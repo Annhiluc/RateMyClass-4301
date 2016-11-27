@@ -1,0 +1,35 @@
+<h1><%= @course.name %></h1>
+<% if current_user %>
+   <%= link_to "Write a Review", {:controller => 'review_course', :action => 'new', :id => @course.id} %>
+ <% end %>
+
+<p>
+   <h2>Professors that Teach this Course:</h2>
+   <ul id = "Professors">
+	   <% @professors.each do |c| %>
+	   <li>
+	        <%= link_to c.name, {:controller => 'professor', :action => 'show', :id => c.prof_id} %>
+	        
+	   </li>
+	</ul>
+	<% end %>
+
+	<h2>Reviews:</h2>
+	<% if @ratings.blank? %>
+			<p>There are currently no reviews for this course.</p>
+	<%else %>
+	<ul id = "reviews">
+		<% @ratings.each do |c| %>
+		<li>
+			<strong>Difficulty Rating: </strong><%= c.rating_difficult %></br>
+			<strong>Interest Rating: </strong><%= c.rating_interest %></br>
+			<i>User: </i><%= link_to c.user_id,  {:controller => 'student', :action => 'show', :id => c.user_id} %></br>
+		</li>
+	</ul>
+	<% end %>
+	<% end %>
+
+	
+</p>
+
+<hr />

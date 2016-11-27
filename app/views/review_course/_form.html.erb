@@ -1,0 +1,22 @@
+
+
+<%= form_for @course, url: {controller: "review_course", action: "create"}  do |f| %>
+
+<%=hidden_field 'rateCourse', 'course_id', :value => @course.id %></p>
+
+<p><label for = "rateCourse_rating_difficult">Difficulty</label>:
+<%= number_field 'rateCourse', 'rating_difficult', within: 0...6, :step => 0.1 %></p>
+
+<p><label for = "rateCourse_rating_interest">Interest</label>:
+<%= number_field 'rateCourse', 'rating_interest', within: 0...6, :step => 0.1 %></p>
+
+
+<%= hidden_field 'rateCourse', 'user_id', :value => current_user.user_id %></p>
+
+
+<%= submit_tag "Submit Review" %>
+
+<% end -%>
+
+
+

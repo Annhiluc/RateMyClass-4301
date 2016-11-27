@@ -1,4 +1,37 @@
-<h1>Rate My Professor</h1>
+<header class="navbar navbar-fixed-top navbar-inverse">
+  <div class="container">
+    <p><%= link_to "Rate My Class", '' %></p>
+    <nav>
+      <ul class="nav navbar-nav navbar-right">
+        <li><%= link_to "Home", '' %></li>
+        <% if current_user %>
+        <li>Signed in as <%= current_user.name %></li>
+        <li><%= link_to "Logout", '/logout' %></li>
+        <% else %>
+        <li><%= link_to "Login", '/login' %></li>
+        <li><%= link_to "Sign Up", '/sign-up' %></li>
+        <% end %>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<div class="container">
+  <%= yield %>
+</div>
+
+<div class="center jumbotron">
+  <h1>Welcome to RateMyClass!</h1>
+
+  <h2>
+    This is the home page for the RateMyClass application!
+  </h2>
+
+  <h3>
+    This is the number of tuples in the database powering this application: <%= @result.rows %>
+  </h3>
+</div>
+
 
 <% if current_user %>
   Signed in as <%= current_user.name %> | <%= link_to "Logout", '/logout' %>

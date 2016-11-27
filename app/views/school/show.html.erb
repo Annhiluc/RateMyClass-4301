@@ -1,0 +1,22 @@
+<h1><%= @school.name %></h1>
+
+<p>
+   <strong>Name: </strong> <%= @school.name %><br />
+   <strong>City:</strong> <%= @school.city %><br />
+   <strong>State:</strong> <%= @school.state %><br />
+
+   <h2>Departments:</h2>
+   <ul id = "Departments">
+	   <% @departments.each do |c| %>
+	   <li>
+	        <%= link_to c.name, {:controller => 'department', :action => 'show', :id => c.id} %>
+	        
+	   </li>
+	</ul>
+	<% end %>
+
+</p>
+
+<hr />
+
+<%= link_to 'Back', {:action => 'list'} %>
