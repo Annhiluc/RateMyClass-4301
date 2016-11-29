@@ -6,7 +6,7 @@
 <ul id = "Courses">
    <% @courses.each do |c| %>
    <li>
-        <%= link_to c.name, {:action => 'show_course', :id => c.course_id} -%>
+        <%= link_to c.name, {:controller => 'course', :action => 'show', :id => c.course_id} -%>
    </li>
 </ul>
 
