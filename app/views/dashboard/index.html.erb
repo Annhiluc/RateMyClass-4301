@@ -32,13 +32,6 @@
   </h3>
 </div>
 
-
-<% if current_user %>
-  Signed in as <%= current_user.name %> | <%= link_to "Logout", '/logout' %>
-<% else %>
-  <%= link_to "Login", '/login' %> | <%= link_to "Sign Up", '/sign-up' %>
-<% end %>
-
 <%= form_tag :action => 'search_professor' do %>
 	<p><label for = "professor_name">Professor</label>:
 

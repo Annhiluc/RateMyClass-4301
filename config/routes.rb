@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get 'student/new'
   post 'student/create'
   patch 'student/update'
-  get 'student/list'
+  # get 'student/list'
   get 'student/show'
   get 'student/edit'
   get 'student/delete'
