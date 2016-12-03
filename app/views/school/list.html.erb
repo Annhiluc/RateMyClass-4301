@@ -3,8 +3,9 @@
 <% else %>
 <p>These are the current schools in our system</p>
 
-<ul id = "Schools">
+
    <% @schools.each do |c| %>
+   <ul id = "Schools">
    <li>
         <%= link_to c.name, {:action => 'show', :id => c.school_id} -%>
         

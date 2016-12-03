@@ -7,8 +7,9 @@
 		<% if @courses.blank? %>
 			<p>This professor is not associated with any courses.</p>
 		<%else %>
-			<ul id = "Courses">
+			
 				<% @courses.each do |c| %>
+				<ul id = "Courses">
 					<li>
 						<%= link_to c.name, {:controller => 'course', :action => 'show', :id => c.id}  %>
 					</li>
@@ -20,8 +21,9 @@
 		<% if @ratings.blank? %>
 			<p>There are currently no reviews for this professor.</p>
 		<%else %>
-			<ul id = "reviews">
+			
 				<% @ratings.each do |c| %>
+				<ul id = "reviews">
 					<li>
 						<strong>Lecture Rating: </strong><%= c.rating_lecture %></br>
 						<strong>Grading Rating: </strong><%= c.rating_grading %></br>
