@@ -19,7 +19,7 @@ class DashboardController < ApplicationController
             from Course), (select count(*) as s6
             from RateCourse), (select count(*) as s7
             from RateProfessor)"
-        @result = ActiveRecord::Base.connection.exec_query(sql)
+        @result = ActiveRecord::Base.connection.exec_query(sqlTotal)
 
         sql2 = "SELECT * FROM (SELECT School.SCHOOL_ID, School.NAME, ROUND(((AVG(DEPT_DIFF) + AVG(DEPT_INT))/2),2) AS SCHOOL_RATING
 				FROM (SELECT Department.SCHOOL_ID AS ScID, Department.DEPT_ID, AVG(COUR_DIFF) AS DEPT_DIFF, AVG(COUR_INT) AS DEPT_INT 
