@@ -28,7 +28,7 @@
   </h2>
 
   <h3>
-    This is the number of tuples in the database powering this application: <%= @result.rows %>
+    This is the number of tuples in the database powering this application: <%= @resultTotal.rows %>
   </h3>
 </div>
 
@@ -47,3 +47,17 @@
 	<%= submit_tag "Search" %>
 
 <% end -%>
+
+<h2>Schools With Top Departments</h2>
+		<%= @resultTopDepartments.each do |r| %>
+		<ul id = "ResultsDepartments">
+	   		<li> <%= link_to r['name'], {:controller => 'school', :action => 'show', :id => r['id']} %></li>
+		</ul>
+<% end %>
+
+<h2>Schools With Top Courses</h2>
+		<%= @resultTopClasses.each do |r| %>
+		<ul id = "ResultsClasses">
+	   		<li> <%= link_to r['name'], {:controller => 'course', :action => 'show', :id => r['id']} %></li>
+		</ul>
+<% end %>
