@@ -50,6 +50,6 @@ class StudentController < ApplicationController
 
     def delete
         Student.find(params[:id]).destroy
-        redirect_to :action => 'list'
+        redirect_to '/'
     end
 end

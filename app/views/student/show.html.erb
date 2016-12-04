@@ -2,15 +2,16 @@
 
 <p>
    <strong>Username: </strong> <%= @student.user_id %><br />
-   <strong>Password :</strong> <%= @student.password %><br />
+   <!--<strong>Password :</strong> <%= @student.password %><br /> not needed cuz we dont wanna publically share passwords!-->
    <strong>School Year:</strong> <%= @student.school_year %><br />
 
    <h2>Professor Reviews:</h2>
 		<% if @ratingsProf.blank? %>
 			<p>This user has not reviewed any professors.</p>
 		<%else %>
-			<ul id = "ratingsProf">
+			
 				<% @ratingsProf.each do |c| %>
+				<ul id = "ratingsProf">
 					<li>
 						<strong>Professor: </strong><%= link_to c.prof_id,  {:controller => 'professor', :action => 'show', :id => c.prof_id} %></br>
 						<strong>Lecture Rating: </strong><%= c.rating_lecture %></br>
@@ -25,8 +26,9 @@
 		<% if @ratingsCourse.blank? %>
 			<p>This user has not reviewed any courses.</p>
 		<%else %>
-			<ul id = "ratingsCourse">
+			
 				<% @ratingsCourse.each do |c| %>
+				<ul id = "ratingsCourse">
 					<li>
 						<strong>Course: </strong><%= link_to c.course_id,  {:controller => 'course', :action => 'show', :id => c.course_id} %></br>
 						<strong>Difficulty Rating: </strong><%= c.rating_difficult %></br>
@@ -41,4 +43,4 @@
 
 <hr />
 
-<%= link_to 'Back', {:action => 'list'} %>
+<%= link_to 'Back', '/' %>

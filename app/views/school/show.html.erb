@@ -6,14 +6,44 @@
    <strong>State:</strong> <%= @school.state %><br />
 
    <h2>Departments:</h2>
-   <ul id = "Departments">
+   
 	   <% @departments.each do |c| %>
-	   <li>
-	        <%= link_to c.name, {:controller => 'department', :action => 'show', :id => c.id} %>
-	        
-	   </li>
+	   <ul id = "Departments">
+		   <li>
+		        <%= link_to c.name, {:controller => 'department', :action => 'show', :id => c.id} %>
+		        
+		   </li>
 	</ul>
 	<% end %>
+
+	<h2>Most Helpful Professors</h2>
+		<%= @result1.each do |r| %>
+		<ul id = "Results1">
+	   		<li> <%= link_to r['name'], {:controller => 'professor', :action => 'show', :id => r['id']} %> <%= r['avghelpful'] %></li>
+		</ul>
+	<% end %>
+
+	<h2>Most Interesting Professors</h2>
+		<%= @result2.each do |r| %>
+	   		<ul id = "Results2">
+	   			<li> <%= link_to r['name'], {:controller => 'professor', :action => 'show', :id => r['id']} %> <%= r['avgint'] %></li>
+	   		</ul>
+	<% end %>
+
+	<h2>Best Graders</h2>
+  		<%= @result3.each do |r| %>
+		<ul id = "Results3">
+	   		<li> <%= link_to r['name'], {:controller => 'professor', :action => 'show', :id => r['id']} %> <%= r['avggr'] %></li>
+	   	</ul>
+	<% end %>
+
+	<h2>Best Lectures</h2>
+		<%= @result4.each do |r| %>
+		<ul id = "Results4">
+	   		<li> <%= link_to r['name'], {:controller => 'professor', :action => 'show', :id => r['id']} %> <%= r['avglec'] %> </li>
+	   	</ul>
+	<% end %>
+
 
 </p>
 

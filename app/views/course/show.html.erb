@@ -5,8 +5,9 @@
 
 <p>
    <h2>Professors that Teach this Course:</h2>
-   <ul id = "Professors">
+   
 	   <% @professors.each do |c| %>
+	   <ul id = "Professors">
 	   <li>
 	        <%= link_to c.name, {:controller => 'professor', :action => 'show', :id => c.prof_id} %>
 	        
@@ -18,8 +19,9 @@
 	<% if @ratings.blank? %>
 			<p>There are currently no reviews for this course.</p>
 	<%else %>
-	<ul id = "reviews">
+	
 		<% @ratings.each do |c| %>
+		<ul id = "reviews">
 		<li>
 			<strong>Difficulty Rating: </strong><%= c.rating_difficult %></br>
 			<strong>Interest Rating: </strong><%= c.rating_interest %></br>
