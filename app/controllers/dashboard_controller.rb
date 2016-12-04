@@ -1,20 +1,12 @@
 class DashboardController < ApplicationController
 	def search_professor
-		#@search = :prof_name
-		@professors = Professor.where(:name => params[:professor][:prof_name])
-		#@professors = Professor.find(params[:prof_name])
-	end
-
-	def show_professor
-		@professor = Professor.find(params[:id])
+		sql = "select * from Professor where name like \'%" + params[:professor][:prof_name] + "%\'"
+		@professors = ActiveRecord::Base.connection.exec_query(sql)
 	end
 
 	def search_course
-		@courses = Course.where(:name => params[:course][:course_name])
-	end
-
-	def show_course
-		@course = Course.find(params[:id])
+		sql = "select * from Course where name like \'%" + params[:course][:course_name] + "%\'"
+		@courses = ActiveRecord::Base.connection.exec_query(sql)
 	end
 
     def index 
@@ -28,5 +20,19 @@ class DashboardController < ApplicationController
             from RateCourse), (select count(*) as s7
             from RateProfessor)"
         @result = ActiveRecord::Base.connection.exec_query(sql)
+
+        sql2 = "SELECT * FROM (SELECT School.SCHOOL_ID, School.NAME, ROUND(((AVG(DEPT_DIFF) + AVG(DEPT_INT))/2),2) AS SCHOOL_RATING
+				FROM (SELECT Department.SCHOOL_ID AS ScID, Department.DEPT_ID, AVG(COUR_DIFF) AS DEPT_DIFF, AVG(COUR_INT) AS DEPT_INT 
+  				FROM (SELECT Course.DEPT_ID AS DID, Course.COURSE_ID, AVG(RateCourse.RATING_DIFFICULT) AS COUR_DIFF, AVG(RateCourse.RATING_INTEREST) AS COUR_INT
+    			FROM Course, RateCourse
+    			WHERE Course.COURSE_ID = RateCourse.COURSE_ID
+    			GROUP BY Course.COURSE_ID, Course.DEPT_ID),Department
+  				WHERE Department.DEPT_ID = DID
+  				GROUP BY Department.DEPT_ID, Department.SCHOOL_ID),School
+				WHERE School.SCHOOL_ID = ScID
+				GROUP BY School.SCHOOL_ID, School.NAME
+				ORDER BY SCHOOL_RATING DESC)
+				WHERE ROWNUM <= 5"
+		@schools = ActiveRecord::Base.connection.exec_query(sql2)
     end
 end
