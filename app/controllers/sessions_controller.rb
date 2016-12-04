@@ -14,7 +14,13 @@ class SessionsController < ApplicationController
             redirect_to '/login'
         end
     end
+    
+    #ActiveRecord::RecordNotFound, :with => :not_found
 
+   #def not_found
+    #   raise ActionController::RoutingError.new('Not Found')
+   #end
+  
     def destroy
         session[:user_id] = nil
         redirect_to '/login'

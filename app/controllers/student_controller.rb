@@ -15,9 +15,23 @@ class StudentController < ApplicationController
 
     def create
         @student = Student.new(student_params_create)
+        
+		#if @student.save
+			# success saving new post
+		#	session[:title]   = nil
+		#	session[:request] = nil
+		#	redirect_to :action => 'show', :id => @student
+		#else
+		#	# failure to save, errors encountered, let's store the list of error messages
+		#	session[:errors] = @student.errors.full_messages
+		#	render :action => 'new'
+		#end
 
+        # @post.save  
+
+        #
         if @student.save
-            redirect_to :action => 'show', :id => @student
+           redirect_to :action => 'show', :id => @student
         else
             @students = Student.all
             render :action => 'new'

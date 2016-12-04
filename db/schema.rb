@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 1) do
     t.decimal "rating_difficult",            precision: 2,  scale: 1
     t.decimal "rating_interest",             precision: 2,  scale: 1
     t.integer "course_id",                   precision: 38
-    t.string  "user_id",          limit: 40
+    t.string  "user_id",          limit: 40,
   end
 
   create_table "rateprofessor", id: false, force: :cascade do |t|
