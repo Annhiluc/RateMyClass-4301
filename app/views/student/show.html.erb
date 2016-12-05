@@ -38,6 +38,26 @@
 				<% end %>
 				<%end %>
 
+	<h2>Users Similar to You:</h2>
+		<% if @results.blank? %>
+			<p>You're unique! No one has reviews similar to you. </p>
+		<%else %>
+			<% @results.each do |c| %>
+				<ul id = "similarUsers1">
+					<li>
+						<%= link_to c['user2'], {:controller => 'student', :action => 'show', :id => c['user2']}%>	&nbsp;Reviews in Common: <%= c['prof']%>
+					</li>
+				</ul>
+			<%end %>
+			<% @results2.each do |c| %>
+				<ul id = "similarUsers2">
+					<li>
+						<%= link_to c['user2'], {:controller => 'student', :action => 'show', :id => c['user2']}%>	&nbsp; Reviews in Common: <%= c['course']%>
+					</li>
+			</ul>
+			<% end %>
+		<%end %>
+
 </p>
 
 

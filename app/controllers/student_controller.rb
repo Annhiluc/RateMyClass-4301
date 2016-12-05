@@ -7,6 +7,23 @@ class StudentController < ApplicationController
         @student = Student.find(params[:id])
         @ratingsCourse  = RateCourse.where(user_id: @student.user_id)
         @ratingsProf = RateProfessor.where(user_id: @student.user_id)
+        sql = "select *
+            from
+            (
+            SELECT u1 as user1, u2 as user2, 1.0 * R.count / (U1.cnt + U2.cnt - R.count) AS similarity, R.count as prof
+            FROM SharedRatings R, U U1, U U2
+            WHERE U1.User_ID = '#{@student.user_id}' and R.u1 = U1.User_ID AND R.u2 = U2.User_ID AND u1 < u2   )
+            where similarity > .5"
+        @results = ActiveRecord::Base.connection.exec_query(sql)
+
+        sql2 = "select *
+            from
+            (
+            SELECT u1 as user1, u2 as user2, 1.0 * R.count / (U1.cnt + U2.cnt - R.count) AS similarity, R.count as course
+            FROM SharedRatings2 R, UU U1, UU U2
+            WHERE U1.User_ID = '#{@student.user_id}' and R.u1 = U1.User_ID AND R.u2 = U2.User_ID AND u1 < u2)
+            where similarity > .5"
+        @results2 = ActiveRecord::Base.connection.exec_query(sql2)
     end
     
     def new
