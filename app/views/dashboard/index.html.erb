@@ -32,40 +32,28 @@
   </h3>
 </div>
 
-<div align="center">
-  <%= form_tag :action => 'search_professor' do %>
-    <p><label for = "professor_name">Professor</label>:
-
-    <%= text_field 'professor', 'prof_name' %></p>
-    <%= submit_tag "Search" %>
-
-  <% end %>
-
-  <%= form_tag :action => 'search_course' do %>
-    <p><label for = "course_name">Course</label>:
-
-    <%= text_field 'course', 'course_name' %></p>
-    <%= submit_tag "Search" %>
-
-  <% end %>
-</div>
-
-<div>
+<div class="center">
   <h3>
     Our Top Ranked Universities:
   </h3>
   </br>
-  <%= @schools.each do |c| %>
-  <ul id = "topRankedSchools" >
-
+  <% @schools.each do |c| %>
+  <ul>
     <li>
-      <%= link_to c['name'], {:controller => 'school', :action => 'show', :id => c['school_id']}%>
+      <%= link_to c['name'], {:controller => 'school', :action => 'show', :id => c['school_id']} %></br>
     </li>
   </ul>
   <% end %>
 </div>
 
+<% if current_user %>
+  Signed in as <%= current_user.name %> | <%= link_to "Logout", '/logout' %>
+<% else %>
+  <%= link_to "Login", '/login' %> | <%= link_to "Sign Up", '/sign-up' %>
+<% end %>
 
+<%= form_tag :action => 'search_professor' do %>
+	<p><label for = "professor_name">Professor</label>:
 
 	<%= text_field 'professor', 'prof_name' %></p>
 	<%= submit_tag "Search" %>
@@ -93,20 +81,3 @@
 	   		<li> <%= link_to r['name'], {:controller => 'course', :action => 'show', :id => r['id']} %></li>
 		</ul>
 <% end %>
-
-<div>
-  <h3>Schools With Top Departments:</h3>
-      <%= @resultTopDepartments.each do |r| %>
-      <ul id = "ResultsDepartments">
-          <li> <%= link_to r['name'], {:controller => 'school', :action => 'show', :id => r['id']} %></li>
-      </ul>
-  <% end %>
-
-  <h3>Top Courses:</h3>
-      <%= @resultTopClasses.each do |r| %>
-      <ul id = "ResultsClasses">
-          <li> <%= link_to r['name'], {:controller => 'course', :action => 'show', :id => r['id']} %></li>
-      </ul>
-  <% end %>
-</div>
->>>>>>> 758846ed08254ae0fc28cd7236547b764adaace2
