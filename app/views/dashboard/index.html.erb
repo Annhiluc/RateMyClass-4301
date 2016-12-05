@@ -37,7 +37,7 @@
     Our Top Ranked Universities:
   </h3>
   </br>
-  <%= @schools.each do |c| %>
+  <% @schools.each do |c| %>
   <ul>
     <li>
       <%= link_to c['name'], {:controller => 'school', :action => 'show', :id => c['school_id']} %></br>
@@ -69,14 +69,14 @@
 <% end %>
 
 <h2>Schools With Top Departments</h2>
-		<%= @resultTopDepartments.each do |r| %>
+		<% @resultTopDepartments.each do |r| %>
 		<ul id = "ResultsDepartments">
 	   		<li> <%= link_to r['name'], {:controller => 'school', :action => 'show', :id => r['id']} %></li>
 		</ul>
 <% end %>
 
 <h2>Schools With Top Courses</h2>
-		<%= @resultTopClasses.each do |r| %>
+		<% @resultTopClasses.each do |r| %>
 		<ul id = "ResultsClasses">
 	   		<li> <%= link_to r['name'], {:controller => 'course', :action => 'show', :id => r['id']} %></li>
 		</ul>
