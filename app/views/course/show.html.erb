@@ -1,3 +1,4 @@
+<div>
 <h1><%= @course.name %></h1>
 <% if current_user %>
    <%= link_to "Write a Review", {:controller => 'review_course', :action => 'new', :id => @course.id} %>
@@ -35,3 +36,4 @@
 </p>
 
 <hr />
+</div>

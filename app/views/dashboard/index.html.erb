@@ -34,6 +34,7 @@
   </h3>
 </div>
 
+<div>
 <%= form_tag :action => 'search_professor' do %>
 	<p><label for = "professor_name">Professor</label>:
 
@@ -51,7 +52,6 @@
 
 <% end %>
 
-<div>
   <h3>
     Our Top Ranked Universities:
   </h3>
@@ -63,7 +63,6 @@
     </li>
   </ul>
   <% end %>
-</div>
 
 
 <h3>Schools With Top Departments:</h3>
@@ -86,3 +85,4 @@
         <li> <%= link_to r['name'], {:controller => 'professor', :action => 'show', :id => r['id']}, :style=>'color: #4c164f;' %></li>
     </ul>
 <% end %>
+</div>
