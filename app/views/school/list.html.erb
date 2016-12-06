@@ -7,7 +7,7 @@
    <% @schools.each do |c| %>
    <ul id = "Schools">
    <li>
-        <%= link_to c.name, {:action => 'show', :id => c.school_id} -%>
+        <%= link_to c.name, {:action => 'show', :id => c.school_id}, :style=>'color: #4c164f;' -%>
         
    </li>
 </ul>

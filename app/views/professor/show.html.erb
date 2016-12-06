@@ -1,6 +1,6 @@
 <h1><%= @professor.name %></h1>
 <% if current_user %>
-	<%= link_to "Write a Review", {:controller => 'review_professor', :action => 'new', :id => @professor.id} %>
+	<%= link_to "Write a Review", {:controller => 'review_professor', :action => 'new', :id => @professor.id}, :style=>'color: #4c164f;' %>
 <% end %>
 <p>
 	<h2>Courses Taught:</h2>
@@ -11,7 +11,7 @@
 				<% @courses.each do |c| %>
 				<ul id = "Courses">
 					<li>
-						<%= link_to c.name, {:controller => 'course', :action => 'show', :id => c.id}  %>
+						<%= link_to c.name, {:controller => 'course', :action => 'show', :id => c.id}, :style=>'color: #4c164f;'  %>
 					</li>
 			</ul>
 				<% end %>
@@ -29,7 +29,7 @@
 						<strong>Grading Rating: </strong><%= c.rating_grading %></br>
 						<strong>Helpfulness Rating: </strong><%= c.rating_helpful %></br>
 						<strong>Interest Rating: </strong><%= c.rating_interest %></br>
-						<i>User: </i><%= link_to c.user_id,  {:controller => 'student', :action => 'show', :id => c.user_id} %></br>
+						<i>User: </i><%= link_to c.user_id,  {:controller => 'student', :action => 'show', :id => c.user_id}, :style=>'color: #4c164f;' %></br>
 					</li>
 			</ul>
 				<% end %>

@@ -10,7 +10,7 @@
 	   <% @departments.each do |c| %>
 	   <ul id = "Departments">
 		   <li>
-		        <%= link_to c.name, {:controller => 'department', :action => 'show', :id => c.id} %>
+		        <%= link_to c.name, {:controller => 'department', :action => 'show', :id => c.id}, :style=>'color: #4c164f;'%>
 		        
 		   </li>
 	</ul>
@@ -19,28 +19,28 @@
 	<h2>Most Helpful Professors</h2>
 		<% @result1.each do |r| %>
 		<ul id = "Results1">
-	   		<li> <%= link_to r['name'], {:controller => 'professor', :action => 'show', :id => r['id']} %> <%= r['avghelpful'] %></li>
+	   		<li> <%= link_to r['name'], {:controller => 'professor', :action => 'show', :id => r['id']}, :style=>'color: #4c164f;' %> <%= r['avghelpful'] %></li>
 		</ul>
 	<% end %>
 
 	<h2>Most Interesting Professors</h2>
 		<% @result2.each do |r| %>
 	   		<ul id = "Results2">
-	   			<li> <%= link_to r['name'], {:controller => 'professor', :action => 'show', :id => r['id']} %> <%= r['avgint'] %></li>
+	   			<li> <%= link_to r['name'], {:controller => 'professor', :action => 'show', :id => r['id']}, :style=>'color: #4c164f;' %> <%= r['avgint'] %></li>
 	   		</ul>
 	<% end %>
 
 	<h2>Best Graders</h2>
   		<% @result3.each do |r| %>
 		<ul id = "Results3">
-	   		<li> <%= link_to r['name'], {:controller => 'professor', :action => 'show', :id => r['id']} %> <%= r['avggr'] %></li>
+	   		<li> <%= link_to r['name'], {:controller => 'professor', :action => 'show', :id => r['id']}, :style=>'color: #4c164f;' %> <%= r['avggr'] %></li>
 	   	</ul>
 	<% end %>
 
 	<h2>Best Lectures</h2>
 		<% @result4.each do |r| %>
 		<ul id = "Results4">
-	   		<li> <%= link_to r['name'], {:controller => 'professor', :action => 'show', :id => r['id']} %> <%= r['avglec'] %> </li>
+	   		<li> <%= link_to r['name'], {:controller => 'professor', :action => 'show', :id => r['id']}, :style=>'color: #4c164f;' %> <%= r['avglec'] %> </li>
 	   	</ul>
 	<% end %>
 

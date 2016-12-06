@@ -13,7 +13,7 @@
 				<% @ratingsProf.each do |c| %>
 				<ul id = "ratingsProf">
 					<li>
-						<strong>Professor: </strong><%= link_to c.prof_id,  {:controller => 'professor', :action => 'show', :id => c.prof_id} %></br>
+						<strong>Professor: </strong><%= link_to c.prof_id,  {:controller => 'professor', :action => 'show', :id => c.prof_id}, :style=>'color: #4c164f;'%></br>
 						<strong>Lecture Rating: </strong><%= c.rating_lecture %></br>
 						<strong>Grading Rating: </strong><%= c.rating_grading %></br>
 						<strong>Helpfulness Rating: </strong><%= c.rating_helpful %></br>
@@ -30,7 +30,7 @@
 				<% @ratingsCourse.each do |c| %>
 				<ul id = "ratingsCourse">
 					<li>
-						<strong>Course: </strong><%= link_to c.course_id,  {:controller => 'course', :action => 'show', :id => c.course_id} %></br>
+						<strong>Course: </strong><%= link_to c.course_id,  {:controller => 'course', :action => 'show', :id => c.course_id}, :style=>'color: #4c164f;' %></br>
 						<strong>Difficulty Rating: </strong><%= c.rating_difficult %></br>
 						<strong>Interest Rating: </strong><%= c.rating_interest %></br>
 					</li>
@@ -45,14 +45,14 @@
 			<% @results.each do |c| %>
 				<ul id = "similarUsers1">
 					<li>
-						<%= link_to c['user2'], {:controller => 'student', :action => 'show', :id => c['user2']}%>	&nbsp;Reviews in Common: <%= c['prof']%>
+						<%= link_to c['user2'], {:controller => 'student', :action => 'show', :id => c['user2']}, :style=>'color: #4c164f;'%>	&nbsp;Reviews in Common: <%= c['prof']%>
 					</li>
 				</ul>
 			<%end %>
 			<% @results2.each do |c| %>
 				<ul id = "similarUsers2">
 					<li>
-						<%= link_to c['user2'], {:controller => 'student', :action => 'show', :id => c['user2']}%>	&nbsp; Reviews in Common: <%= c['course']%>
+						<%= link_to c['user2'], {:controller => 'student', :action => 'show', :id => c['user2']}, :style=>'color: #4c164f;'%>	&nbsp; Reviews in Common: <%= c['course']%>
 					</li>
 			</ul>
 			<% end %>

@@ -5,7 +5,7 @@
    	   <% @professors.each do |c| %>
    	   <ul id = "Professors">
 		   <li>
-		        <%= link_to c.name, {:controller => 'professor', :action => 'show', :id => c.id} %>
+		        <%= link_to c.name, {:controller => 'professor', :action => 'show', :id => c.id}, :style=>'color: #4c164f;' %>
 		   </li>
 		</ul>
 	<% end %>
@@ -15,7 +15,7 @@
 	   <% @courses.each do |c| %>
 	   <ul id = "Courses">
 	   <li>
-	         <%= link_to c.name, {:controller => 'course', :action => 'show', :id => c.id}  %>
+	         <%= link_to c.name, {:controller => 'course', :action => 'show', :id => c.id}, :style=>'color: #4c164f;'  %>
 	        
 	   </li>
 	</ul>
