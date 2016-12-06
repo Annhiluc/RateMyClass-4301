@@ -52,5 +52,13 @@ class DashboardController < ApplicationController
 			where dept=Department.dept_id"
         @resultTopClasses = ActiveRecord::Base.connection.exec_query(sqlTopClasses)
 
+        sqlTopProf =  "select distinct prof_name as name, prof_id as id
+			from Department, (select Professor.dept_id as dept, Professor.name as profName, Professor.prof_id as profId
+			from Professor, RateProfessor
+			where Professor.prof_id = RateProfessor.prof_id
+			group by Professor.dept_id, Professor.name, Professor.prof_id having avg(rating_interest) > 4.75)
+			where dept=Department.dept_id"
+        @resultToProf = ActiveRecord::Base.connection.exec_query(sqlTopProf)
+
     end
 end

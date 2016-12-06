@@ -71,9 +71,16 @@
 		</ul>
 <% end %>
 
-<h3>Schools With Top Courses:</h3>
+<h3>Top Overall Courses:</h3>
 		<% @resultTopClasses.each do |r| %>
 		<ul id = "ResultsClasses">
 	   		<li> <%= link_to r['name'], {:controller => 'course', :action => 'show', :id => r['id']}, :style=>'color: #4c164f;' %></li>
 		</ul>
+<% end %>
+
+<h3>Top Overall Professors:</h3>
+    <% @resultTopProf.each do |r| %>
+    <ul id = "ResultsProf">
+        <li> <%= link_to r['name'], {:controller => 'professor', :action => 'show', :id => r['id']}, :style=>'color: #4c164f;' %></li>
+    </ul>
 <% end %>
