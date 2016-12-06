@@ -1,0 +1,14 @@
+<% if @courses.blank? %>
+<p>There are not any courses currently in the system matching that name.</p>
+<% else %>
+<p>These are the current courses in our system matching that name</p>
+
+<% @courses.each do |c| %>
+<ul id = "Courses">
+   <li>
+        <%= link_to c['name'], {:controller => 'course', :action => 'show', :id => c['course_id']} -%>
+   </li>
+</ul>
+
+<% end %>
+<% end %>

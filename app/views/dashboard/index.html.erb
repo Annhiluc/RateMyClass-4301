@@ -28,8 +28,52 @@
   </h2>
 
   <h3>
-    This is the number of tuples in the database powering this application: <%= @result.rows %>
+    This is the number of tuples in the database powering this application: <%= @resultTotal.rows %>
   </h3>
 </div>
 
+<%= form_tag :action => 'search_professor' do %>
+	<p><label for = "professor_name">Professor</label>:
 
+	<%= text_field 'professor', 'prof_name' %></p>
+	<%= submit_tag "Search" %>
+
+<% end %>
+
+
+<%= form_tag :action => 'search_course' do %>
+	<p><label for = "course_name">Course</label>:
+
+	<%= text_field 'course', 'course_name' %></p>
+	<%= submit_tag "Search" %>
+
+<% end %>
+
+<div>
+  <h3>
+    Our Top Ranked Universities:
+  </h3>
+  </br>
+  <% @schools.each do |c| %>
+  <ul>
+    <li>
+      <%= link_to c['name'], {:controller => 'school', :action => 'show', :id => c['school_id']} %></br>
+    </li>
+  </ul>
+  <% end %>
+</div>
+
+
+<h3>Schools With Top Departments:</h3>
+		<% @resultTopDepartments.each do |r| %>
+		<ul id = "ResultsDepartments">
+	   		<li> <%= link_to r['name'], {:controller => 'school', :action => 'show', :id => r['id']} %></li>
+		</ul>
+<% end %>
+
+<h3>Schools With Top Courses:</h3>
+		<% @resultTopClasses.each do |r| %>
+		<ul id = "ResultsClasses">
+	   		<li> <%= link_to r['name'], {:controller => 'course', :action => 'show', :id => r['id']} %></li>
+		</ul>
+<% end %>

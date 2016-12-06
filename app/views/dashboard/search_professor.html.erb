@@ -1,0 +1,14 @@
+<% if @professors.blank? %>
+<h2>There are not any professors currently in the system matching that name.</h2>
+<% else %>
+<p>These are the current professors in our system matching that name</p>
+
+<% @professors.each do |c| %>
+<ul id = "Professors">
+   <li>
+        <%= link_to c['name'], {:controller => 'professor', :action => 'show', :id => c['prof_id']} -%>
+   </li>
+</ul>
+
+<% end %>
+<% end %>
