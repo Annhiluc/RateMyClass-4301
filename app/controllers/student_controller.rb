@@ -12,8 +12,8 @@ class StudentController < ApplicationController
             (
             SELECT R.u1 as user1, R.u2 as user2, 1.0 * R.count / (U1.cnt + U2.cnt - R.count) AS similarity, R.count as prof
             FROM SharedRatings R, U U1, U U2
-            WHERE U1.User_ID = '#{@student.user_id}' and R.u1 = U1.User_ID AND R.u2 = U2.User_ID AND u1 < u2   )
-            where similarity > .5"
+            WHERE U1.User_ID = '#{@student.user_id}' and R.u1 = U1.User_ID AND R.u2 = U2.User_ID AND U1.user_id!=U2.user_id)
+            where similarity > .25"
         @results = ActiveRecord::Base.connection.exec_query(sql)
 
         sql2 = "select *
@@ -21,8 +21,8 @@ class StudentController < ApplicationController
             (
             SELECT R.u1 as user1, R.u2 as user2, 1.0 * R.count / (U1.cnt + U2.cnt - R.count) AS similarity, R.count as course
             FROM SharedRatings2 R, UU U1, UU U2
-            WHERE U1.User_ID = '#{@student.user_id}' and R.u1 = U1.User_ID AND R.u2 = U2.User_ID AND u1 < u2)
-            where similarity > .5"
+            WHERE U1.User_ID = '#{@student.user_id}' and R.u1 = U1.User_ID AND R.u2 = U2.User_ID AND U1.user_id!=U2.user_id)
+            where similarity > .25"
         @results2 = ActiveRecord::Base.connection.exec_query(sql2)
     end
     
