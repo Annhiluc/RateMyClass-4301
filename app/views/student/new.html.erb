@@ -1,6 +1,6 @@
 <h1>Sign Up</h1>
 
-<%= form_tag :action => 'create' do %>
+<%= form_tag :action => 'create' do |f| %>
 <p><label for = "student_user_id">Username</label>:
 
 <%= text_field 'student', 'user_id' %></p>
@@ -13,6 +13,8 @@
 <p><label for = "student_school_year">School Year</label>:
 
 <%= number_field 'student', 'school_year' %></p>
+
+
 <%= submit_tag "Create my account" %>
 
 <% end -%>
