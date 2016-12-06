@@ -1,0 +1,46 @@
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.2/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.0.2/dist/leaflet.js"></script>
+<div id="mapid"></div>
+<h1> Map</h1>
+
+<script> var mymap = L.map('mapid').setView([36.2008026,-113.7852924], 4.4);
+
+        L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(mymap);
+</script>
+
+
+<%resultArray = @result.map{|r| [r["state"], r["avgrating"]]}%>
+
+
+<script> 
+ //each state gets a marker 50 states total
+ for(var i = 0; i < resultArray.length; i++) {
+        var j = 0
+        //for(var j = 0; j < resultArray[i].length; j++) {
+        //display("state" + resultArray[i][j] + " Avg" + resultArray[i][j+1]);
+     
+          //California CA
+          if (resultArray[i][j] == "CA") {
+            var marker1 = L.marker([36.906817, -121.124160]).addTo(mymap);
+                marker1.bindPopup("<b>California</b><br> " + resultArray[i][j+1] ).openPopup();
+         }
+       
+          //NORTH DAKOTA ND
+          var marker2 = L.marker([46.763160, -100.118300]).addTo(mymap);
+          marker2.bindPopup("<b>North Dakota</b><br>I am a popup.").openPopup();
+  
+          // TX
+          //var marker3 = L.marker([31.307609, -98.887831]).addTo(mymap);
+          //marker3.bindPopup("<b>Texas</b><br>I am a popup.").openPopup();
+  
+          //NY
+          //var marker4 = L.marker([43.315448, -75.623802]).addTo(mymap);
+          //marker4.bindPopup("<b>New York</b><br>I am a popup.").openPopup();
+         
+        
+}      
+</script>
+
+

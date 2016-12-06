@@ -5,7 +5,14 @@ class SessionsController < ApplicationController
     end
     
     def create
-        student = Student.find(params[:user_id])
+        begin
+            student = Student.find(params[:user_id])
+        
+            rescue ActiveRecord::RecordNotFound  
+            redirect_to '/login'
+                return
+        end
+
 
         if student && student.password == (params[:password])
             session[:user_id] = student.user_id
