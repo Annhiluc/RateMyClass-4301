@@ -11,36 +11,48 @@
 </script>
 
 
-<%resultArray = @result.map{|r| [r["state"], r["avgrating"]]}%>
-
-
-<script> 
+<% @resultArray = @result.map{|r| [r["state"], r["avgrating"]]}%>
+ 
+    
+<script>
+        
  //each state gets a marker 50 states total
- for(var i = 0; i < resultArray.length; i++) {
-        var j = 0
-        //for(var j = 0; j < resultArray[i].length; j++) {
-        //display("state" + resultArray[i][j] + " Avg" + resultArray[i][j+1]);
+ 
+        //var js_array = [<%= raw @result.to_json %>];
+        
+        //
+        //var array = <%= @resultArray.inspect.html_safe %>;
+        //var array = <%= escape_javascript @resultArray.to_json %>
+        var array = [];
+           array = "<%= @resultArray.as_json %>";
+           
+        //display("state" + array[1][0] + " Avg" + array[1][1]);
+        
+        //for(var i = 0; i < js_array.length; i++) {
+       //var j = 0
+        //for(var j = 0; j < js_array[i].length; j++) {
+        //display("state" + js_array[i][j] + " Avg" + js_array[i][j+1]);
      
-          //California CA
-          if (resultArray[i][j] == "CA") {
-            var marker1 = L.marker([36.906817, -121.124160]).addTo(mymap);
-                marker1.bindPopup("<b>California</b><br> " + resultArray[i][j+1] ).openPopup();
-         }
+        //California CA
+        //if (resultArray[i][j] == "CA") {   
+        var marker1 = L.marker([36.906817, -121.124160]).addTo(mymap);
+         marker1.bindPopup("<b>California</b><br>" + 7.8 ).openPopup();
+        // }
        
           //NORTH DAKOTA ND
           var marker2 = L.marker([46.763160, -100.118300]).addTo(mymap);
-          marker2.bindPopup("<b>North Dakota</b><br>I am a popup.").openPopup();
+          marker2.bindPopup("<b>North Dakota</b><br>" + 5.5).openPopup();
   
           // TX
-          //var marker3 = L.marker([31.307609, -98.887831]).addTo(mymap);
-          //marker3.bindPopup("<b>Texas</b><br>I am a popup.").openPopup();
+          var marker3 = L.marker([31.307609, -98.887831]).addTo(mymap);
+          marker3.bindPopup("<b>Texas</b><br>" + 4.3).openPopup();
   
           //NY
-          //var marker4 = L.marker([43.315448, -75.623802]).addTo(mymap);
-          //marker4.bindPopup("<b>New York</b><br>I am a popup.").openPopup();
+          var marker4 = L.marker([43.315448, -75.623802]).addTo(mymap);
+          marker4.bindPopup("<b>New York</b><br>"+ 7.6).openPopup();
          
         
-}      
+//}     
 </script>
 
 

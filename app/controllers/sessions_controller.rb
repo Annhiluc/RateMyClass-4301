@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
         begin
             student = Student.find(params[:user_id])
         
-            rescue ActiveRecord::RecordNotFound  
+            rescue ActiveRecord::RecordNotFound
             redirect_to '/login'
                 return
         end
